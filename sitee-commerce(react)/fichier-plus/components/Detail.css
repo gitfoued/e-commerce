@@ -1,0 +1,112 @@
+.Globa-detail{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 20PX;
+}
+.Globa-detail > .image-containeur{
+    position: relative;
+    display: flex;
+    width: 1400PX;
+    flex-direction: wrap;
+    background-color: #F7F7F7;
+    border: 1PX SOLID #F7F7F7;
+}
+ .Globa-detail >.image-containeur > .image{
+    height: 400PX;
+    width: 400PX;
+    background-size: AUTO;
+    position: relative;
+    top: -5PX;
+     
+}
+.additional-image{
+    height: 100PX;
+    width: 80PX;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: AUTO;  
+}
+.additional-image:hover{
+    cursor: pointer;
+}
+.desc-produit{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: -80PX;
+    left: -250PX;
+    border:2PX SOLID black;
+    width: 400PX;
+    height: 590PX;
+}
+  
+
+.desc-produit{
+    background-color: #F7F7F7
+}
+
+.desc-produit > p{
+    position: relative;
+    top: 5PX;
+    color: gray;
+    left: 20px;
+    padding-top: 20PX;
+    
+}
+.desc-produit > h3{
+    padding-left: 20px;
+    padding-top: -10PX;
+    border-bottom: 2px solid black;
+}
+.desc-produit >.price{
+    position: relative;
+    top: 25px;
+    left: 300PX;
+    text-decoration:line-through;
+    position: relative;
+   
+    
+}
+
+.desc-produit > .discount{
+    color: red;
+    position: relative;
+    top: -24PX;
+   
+}
+ .size{
+    width: 200PX;
+    padding: 10PX;
+    margin-left: 20PX;
+    margin-top: 10PX;
+    align-items: end;
+    
+}
+.tab-size {
+    align-items:center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;   
+}
+
+.desc-produit > .button1{
+    margin-top: 30PX;
+    height: 30PX;
+    cursor:pointer;
+    position: absolute;
+    top: 530PX;
+    width: 100%;
+    
+}
+.desc-produit>.erreur_choix{
+    color: red;
+    font-size: 16px;
+    position: relative;
+    top: -21PX;
+}

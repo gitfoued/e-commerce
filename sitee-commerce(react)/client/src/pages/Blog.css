@@ -1,0 +1,68 @@
+
+.partie1-blog {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 30px;
+  }
+  .containerblog {
+    margin-top: 40PX;
+    width: 90%;
+    margin-left: 40PX;
+    display: flex;
+    flex-direction: column;
+  }
+  .containerblog .image {
+    width:95%;
+    height: 380PX;
+  }
+    .containerblog .date{
+        opacity: 0.5;
+        color: black;
+        margin-top: -10PX;
+        margin-left: 20px;
+    
+    }
+    .containerblog .link-blog{
+        text-decoration: none;
+        align-self: flex-start;
+    }
+    .containerblog .link-blog :hover{
+        text-decoration: underline;
+        opacity: 1;
+        color: blue;
+    }
+    .containerblog .title{
+        color: blue;
+        opacity: 0.5;
+        margin-left: 500PX;
+        top: 6PX;
+    }
+    .containerblog .description{
+        color: black;
+        margin-top: -5PX;
+        right: 10PX;
+    }
+    /* Styles pour la liste */
+.search-blog {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Styles pour chaque élément de la liste */
+  .product-blog {
+
+    padding: 8px;
+   margin-left: 10PX;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Styles pour le survol de la liste */
+  .product-blog:hover {
+    background-color: #e0e0e0;
+  }
+  

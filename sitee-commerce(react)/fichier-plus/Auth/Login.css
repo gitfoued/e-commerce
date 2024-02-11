@@ -1,0 +1,186 @@
+.Global-log{
+    background-color: rgb(48, 48, 162); 
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Global-log > .button{
+      
+    position: relative;
+    left: -600PX;
+    top: 70PX;
+}
+.Global-log > p{
+  color: white;
+  opacity: 0.7;
+  position: relative;
+  top: -5PX;
+  left: 40PX;
+}
+.fa-arrow-left{
+    color: white;
+}
+.button button{
+    background-color:rgb(48, 48, 162); 
+    border: none;
+}
+.link{
+    text-decoration: none;
+    color: white;
+   font-size: medium;
+}
+.formulaire-log{
+    background-color: white;
+    height: 90vh;
+    margin-top: 40PX;
+    width: 650px;
+    box-shadow: 1PX 1PX 1PX 1PX aliceblue ;
+    
+    
+}
+.formulaire-log > h1{
+    margin-left: 180px;
+    margin-top: 40PX;
+    color: rgba(12, 12, 189, 0.845);
+}
+.formulaire-log > h1 span{
+    color: rgb(200, 200, 27);
+}
+.formulaire-log >p{
+    color: black;
+    margin-left: 180px;
+    position: relative;
+    top: 15px;
+    margin-bottom: -6px;
+
+    opacity: 0.7;
+}
+.formulaire-log .pargra{
+    margin-left: 280px;
+}
+.fatherform-log{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 80px;
+    z-index: 5;
+}
+.fatherform-log form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+.fatherform-log form input{
+    padding: 15PX 20PX;
+    width: 400PX;
+    outline: none;
+    border: 2PX SOLID WHITE;
+    border-radius: 10PX;
+    box-shadow: 0PX 0PX 1PX 1PX rgb(138, 137, 137);
+    transition: 0.3s;
+    margin-bottom: 20px;
+    
+    
+}
+.fatherform-log form input:focus{
+    border: 2PX SOLID rgb(116, 87, 183);
+    
+}
+.fatherform-log form input::placeholder{
+    color: black;
+    position: relative;
+    
+}
+.fatherform-log button{
+    outline: none;
+    border: none;
+    background-color: rgba(12, 12, 189, 0.845);
+    width: 280PX;
+    height: 50PX;
+    color: white;
+    margin-left: 80PX;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.1s;
+border: 2px solid white;
+font-weight: bold;
+}
+.ligne8{
+   background-color:  rgb(210, 206, 206);
+    position: relative;
+    left: -172PX;
+    top: 45PX;
+    width: 47%;
+  height: 1px;
+}
+.ligne9{
+    background-color: rgb(210, 206, 206);
+    position: relative;
+    left: 170PX;
+    width: 47%;
+    top: -15PX;
+  height: 1px;
+}
+.fatherform-log > h3{
+    position: relative;
+    top: 15PX;
+}
+.pass-link{
+    color: black;
+    position: relative;
+    opacity: 0.7;
+    top: 100PX;
+    
+}
+.Google{
+    outline: none;
+   border: none;
+   background-color: white;
+    width: 320PX;
+    height: 50PX;
+    color: black;
+    margin-top: 100PX;
+    margin-left: 150PX;
+    opacity: 0.7;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.1s;
+border: 2px solid rgb(154, 149, 149);
+font-weight: bold;
+font-size: larger;
+z-index: 6;
+}
+.error{
+    color: red;
+    font-size: 12px;
+    position: relative;
+    top: -15PX;
+}
+
+.Global-log>.formulaire-log>.network{
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 150PX;
+        width: 50PX;
+        position: fixed;
+        bottom: 60PX;
+        right: 385PX;
+        border: 1PX solid rgba(12, 12, 189, 0.845);
+        border-radius: 0PX 0PX 30PX 0PX ;
+        z-index: 3;
+    
+   
+}
+.Global-log> .formulaire-log>.network> .link1 > .fa-facebook{
+    padding: 15PX;
+}
+.Global-log>.formulaire-log>.network>.link1> .fa-twitter{
+    padding-bottom: 15PX;
+}
+.Global-log>.formulaire-log>.network>.link1>.fa-instagram{
+    padding-bottom: 15PX;
+}

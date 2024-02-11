@@ -1,0 +1,33 @@
+.body1 {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    MAX-height: 450vh;
+  }
+.glob2{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20PX;
+    flex: 1;
+}
+
+.men{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -500PX;
+    margin-top: 30PX
+   
+}
+.cardMen{
+    position: relative;
+    top: 950PX;
+
+    
+    
+}
+.foote {
+    margin-top: 1500PX;
+    
+
+  }

@@ -1,0 +1,165 @@
+.glob{
+    display: flex;
+    flex-direction: row;
+}
+.globalecontact1{
+    display: flex;
+    flex-direction: row;
+    height: 550PX;
+    width: 1200PX;
+    margin-left: 150PX;
+    margin-top: 50PX;
+    border: 2px SOLID white;
+    border-radius: 1%;
+    box-shadow: 5px 10px 10px 10PX #d4cfcf;
+    z-index: 2;
+    
+   
+}
+.contact1part1{
+    display: flex;
+    flex-direction: column;
+    margin-left: 40PX;
+    margin-top: 20PX;
+}
+.contact1part1 > h2{
+    color:rgb(48, 48, 162) ;
+}
+.contact1part1 >p{
+    color: gray ;
+    margin-left: 5PX;
+    margin-top: -40PX;
+}
+.formulaire2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: 80px;
+}
+.formulaire2 form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+.formulaire2 form input{
+    padding: 15PX 20PX;
+    width: 400PX;
+    outline: none;
+    border: 2PX SOLID WHITE;
+    box-shadow: 0PX 0PX 1PX 1PX rgb(138, 137, 137);
+    transition: 0.3s;
+    margin-bottom: 20px;
+    background-color:rgb(244, 241, 241);
+}
+.formulaire2 form input:focus{
+    border: 2PX SOLID rgb(116, 87, 183);
+    
+}
+.formulaire2 form input::placeholder{
+    color: black;
+    position: relative;
+    left: -10px;
+    
+}
+.formulaire2 textarea{
+    background-color:rgb(244, 241, 241);
+    resize: none;
+    outline: none;
+}
+.formulaire2 button{
+    outline: none;
+    border: none;
+    margin-top: 20PX;
+    background-color: rgba(12, 12, 189, 0.845);
+    width: 450PX;
+    height: 50PX;
+    color: white;
+    cursor: pointer;
+    transition: 0.1s;
+    border: 2px solid white;
+    font-weight: bold;
+}
+.contact1part2{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.imagecontact img{
+    height: 250PX;
+    width: 350PX;
+    background-size: AUTO;
+    position: relative;
+    left: 230PX;
+    top: 40PX;
+}
+.porteur-icon{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 230PX;
+    top: 80PX;
+    margin-left: 80PX;
+}
+
+.icon > li{
+    list-style: none;
+    padding-bottom: 15PX;
+}
+.icon >li >.link{
+    color: black;
+    position: relative;
+    top: -2PX;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100PX;
+    
+}
+.fa-map-marker-alt{
+    outline: none;
+    color: blue;
+    position: relative;
+    bottom: -18PX;
+    right: 40PX;
+    font-size: large;
+}
+.icon>.fa-phone-alt {
+    outline: none;
+    color: blue;
+    position: relative;
+    bottom: -18PX;
+    right: 40PX;
+    font-size: large;
+}
+.icon>.fa-envelope{
+    outline: none;
+    color: blue;
+    position: relative;
+    bottom: -18PX;
+    right: 40PX;
+    font-size: large;
+}
+.network{
+    background-color: rgba(12, 12, 189, 0.845);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 150PX;
+    width: 50PX;
+    position: fixed;
+    bottom: 60PX;
+    right: 107PX;
+    border: 1PX solid rgba(12, 12, 189, 0.845);
+    border-radius: 0PX 0PX 30PX 0PX ;
+    z-index: 3;
+}
+.network > .link1 > .fa-facebook{
+    padding: 15PX;
+}
+.network >.link1> .fa-twitter{
+    padding-bottom: 15PX;
+}
+.network > .link1>.fa-instagram{
+    padding-bottom: 15PX;
+}
+

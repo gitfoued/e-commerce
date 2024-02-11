@@ -1,0 +1,29 @@
+.content-clothes{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-areas: "partie1 partie2";
+}
+.content-clothes .partie2{
+margin-left: -350PX;
+margin-top: 45PX;
+z-index: 1;
+}
+.content-clothes .partie1{
+    z-index: 2;
+    }
+
+.content-clothes-2{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-template-areas: "partie1 partie2";
+    overflow-y: hidden;
+}
+.content-clothes-2 .partie2{
+    margin-left: -350PX;
+    margin-top: 45PX;
+   
+}
+.content-clothes-2 .partie3{
+    position: relative;
+    top: 1430PX;
+}

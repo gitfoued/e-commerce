@@ -1,0 +1,45 @@
+.blog2-container{
+    height: 380PX;
+    width: 250PX;
+    margin-left: 100PX;
+    
+    overflow: hidden;
+    }
+    .blog2-elements{
+    display: flex;
+    flex-direction: column;
+    }
+    .blog2-elements .image{
+        height: 230PX;
+        min-width: 300px;
+       border-radius: 10PX;
+       position: relative;
+       top: 30PX;
+       
+    }
+    .blog2-elements .date{
+        opacity: 0.5;
+        color:black;
+       top: 25PX;
+    
+    }
+    .blog2-elements .link-blog{
+        text-decoration: none;
+        align-self: flex-start;
+    }
+    .blog2-elements .link-blog :hover{
+        text-decoration: underline;
+        opacity: 1;
+        color: blue;
+    }
+    .blog2-elements .title{
+        color: blue;
+        opacity: 0.5;
+        margin-left: 180PX;
+        top: -6PX;
+    }
+    .blog2-elements .description{
+        color: black;
+        margin-top: -25PX;
+       
+    }

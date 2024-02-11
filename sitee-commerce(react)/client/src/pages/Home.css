@@ -1,0 +1,7 @@
+.chatbot-image{
+    position: fixed;
+    bottom: 30PX;
+    right: 30px;
+   width: 40px;
+   cursor: pointer;
+}
