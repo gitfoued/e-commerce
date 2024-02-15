@@ -34,26 +34,39 @@
     height: 300PX;
     border-bottom: solid 2px GRAY;
 }
+.form-bott{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+
+
+}
 .ecrire{
     background-color: white;
     height: 80PX;
     border-radius: 0% 0% 10% 10%;
 }
-.ecrire > .image-envoi{
-    width: 25px;
-    position: relative;
-    top: 10PX;
-    left: 8PX;
-    cursor: pointer;
-    z-index: 1;
+.image-envoi{
+    width: 100%; /* La largeur de l'image sera de 100% de la largeur du bouton */
+    height: 30PX; /* La hauteur de l'image s'ajustera automatiquement pour maintenir les proportions */
+    display: block;
 }
+
  .label{
     z-index: 3;
     width: 17rem;
     height: 30px;
-    margin-left: 25PX;
+    margin-left: 23PX;
     margin-top: 20px;
     border: solid 1px rgb(221, 220, 220);
     border-radius: 15%;
     padding-left: 10px;
  } 
+
+    .button {
+        background: none;
+        border: none;
+        margin: 0;
+        display: inline-block;
+        cursor: pointer;
+      }

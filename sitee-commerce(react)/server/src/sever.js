@@ -1,14 +1,20 @@
 import express from "express"
 import cors from "cors"
 import db from "./db.js";
+import * as dotenv from "dotenv"
+
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { createNewuser, login } from "./helpers/user.js";
 import cookieParser from "cookie-parser";
-
+import bodyParser from "body-parser";
+import {OpenAI } from "openai";
+dotenv.config();
+const apiKey=process.env.OPENAI_API_KEY;
+const client = new OpenAI({ key: apiKey });
 const app=express();
 app.use(express.json());
-
+app.use(bodyParser.json());
 app.use(cors({
     origin:"http://localhost:3000",
     credentials:true,
@@ -19,6 +25,16 @@ const imagePath = join(currentModulePath, '.', 'images');
 
 
 app.use('/images', express.static(imagePath));
+app.post('/chat',async(req,res)=>{
+  const { prompt }=req.body;
+  const completion=await client.chat.completions.create({
+    model:"",
+    max_tokens: 512,
+    temperature:0,
+    prompt:prompt,
+  })
+  res.send(completion.data.choices[0].text)
+})
 app.get('/produits/:id', (req, res) => {
     const produitId = req.params.id;
   

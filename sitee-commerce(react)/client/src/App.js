@@ -17,6 +17,7 @@ import Pc from './pages/Pc';
 import Produit from './pages/Produit';
 import  Clothespage  from './pages/Clothespage';
 import Detail from './components/Detail';
+import Chatbot from './components/Chatbot';
 class App extends Component {
  render(){
   return (
@@ -38,6 +39,7 @@ class App extends Component {
      <Route path='/Clothes' exact element={<Clothespage/>}  />
      <Route path='/produit' exact element={<Produit/>}  />
      <Route path='/Detail' exact element={<Detail/>}  />
+     <Route path='/chat' exact element={<Chatbot/>}  />
      </Routes>
      
     </BrowserRouter>
