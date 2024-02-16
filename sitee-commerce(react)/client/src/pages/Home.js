@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {Navbar} from '../components/Navbar';
 import {Home1} from '../components/Home1';
 import Footer from '../components/Footer';
@@ -8,9 +8,20 @@ import Producthome from '../components/Producthome';
 import Cards from '../components/Cards';
 import images from "./../assets/images.png"
 import Chatbot from '../components/Chatbot';
+import axios from "axios"
 import "./Home.css"
 function Home(){
     const [chatVisible, setChatVisible] = useState(false);
+    const [imagehome,setimages]=useState([])
+    useEffect(() => {
+        // Charger la liste d'images depuis le backend
+        axios.get('http://localhost:4000/')
+            .then(response =>{ 
+                console.log(response.data)
+                setimages(response.data)})
+            .catch(error => console.error('Erreur de chargement des images:', error));
+    }, []);
+
     const handleChatToggle = () => {
         setChatVisible(!chatVisible);
     };
@@ -18,8 +29,8 @@ function Home(){
         <>
        <div className='all-home'>
         <Navbar findnav={'   search Home'}/>
-        <Home1/>
-        <Producthome donnee={Tableau1}/>
+        <Home1 props={imagehome[0]}/>
+        <Producthome donnee={Tableau1}  props={imagehome[1]}/>
         
         <Product donnee={Tableau2}/><Cards donnee={Tableau3}/><Cards donnee={Tableau3}/>
         <div>

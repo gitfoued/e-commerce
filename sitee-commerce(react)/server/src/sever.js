@@ -22,8 +22,6 @@ app.use(cors({
 ));
 const currentModulePath = dirname(fileURLToPath(import.meta.url));
 const imagePath = join(currentModulePath, '.', 'images');
-
-
 app.use('/images', express.static(imagePath));
 app.post('/chat',async(req,res)=>{
   const { prompt }=req.body;
@@ -34,6 +32,13 @@ app.post('/chat',async(req,res)=>{
     prompt:prompt,
   })
   res.send(completion.data.choices[0].text)
+})
+const imagehome=['image1.jpg','image10.jpg']
+app.get('/', (req, res) => {
+  console.log("Requête reçue pour /");
+  const imageUrls = imagehome.map(file => `images/${file}`);
+  console.log("Envoi des URLs d'images :", imageUrls);
+  res.json(imageUrls);
 })
 app.get('/produits/:id', (req, res) => {
     const produitId = req.params.id;

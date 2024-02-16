@@ -12,8 +12,9 @@
     flex-direction: column;
   }
   .containerblog .image {
-    width:95%;
-    height: 380PX;
+    width:80%;
+    height: 450PX;
+    margin-left: 40PX;
   }
     .containerblog .date{
         opacity: 0.5;

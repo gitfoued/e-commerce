@@ -5,7 +5,7 @@ import image10 from '../assets/image10.jpg';
 import IntersectionObserverComponent from '../animation/Anime';
 import { Rating } from './Reating';
 import Detail from './Detail';
-function Producthome({donnee}){
+function Producthome({donnee, props}){
     return(
      <>
     
@@ -34,8 +34,8 @@ function Producthome({donnee}){
       <div className='Image-women'>
         <h1>NEW COLLECTION</h1>
         <p className="title">Shop Men's & Women's & children</p>
-        <button className="button">SHOP NOW</button>
-        <img src={image10} alt='image10'/>
+       <Link to='/Women'><button className="button">SHOP NOW</button></Link> 
+        <img src={`http://localhost:4000/${props}`} alt='image1' />
         
 
 

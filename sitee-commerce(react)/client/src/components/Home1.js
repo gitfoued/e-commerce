@@ -6,7 +6,7 @@ import image1 from '../assets/image1.jpg';
 
 
 
-export function Home1(){
+export function Home1({props}){
     
    
      
@@ -19,8 +19,8 @@ export function Home1(){
         <p className="title1">TOP BRANDS</p>
         <h1>NEW COLLECTION</h1>
         <p className="title2">Lorem ipsum dolor at mind,constructeur pedagore</p>
-        <button className="button1">SHOP NOW</button>
-        <img src={image1} alt='image1'/>
+      <Link to="/Men"><button className="button1">SHOP NOW</button></Link> 
+        <img src={`http://localhost:4000/${props}`} alt='image1' />
        </div>
        </IntersectionObserverComponent>
        
