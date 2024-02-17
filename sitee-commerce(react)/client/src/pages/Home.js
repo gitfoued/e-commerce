@@ -3,7 +3,6 @@ import {Navbar} from '../components/Navbar';
 import {Home1} from '../components/Home1';
 import Footer from '../components/Footer';
 import Product from '../components/Product';
-import { Tableau1,Tableau2,Tableau3 } from '../components/Tableaimage';
 import Producthome from '../components/Producthome';
 import Cards from '../components/Cards';
 import images from "./../assets/images.png"
@@ -13,14 +12,25 @@ import "./Home.css"
 function Home(){
     const [chatVisible, setChatVisible] = useState(false);
     const [imagehome,setimages]=useState([])
+    const [tableimages,settableimages]=useState([])
     useEffect(() => {
-        // Charger la liste d'images depuis le backend
-        axios.get('http://localhost:4000/')
-            .then(response =>{ 
-                console.log(response.data)
-                setimages(response.data)})
-            .catch(error => console.error('Erreur de chargement des images:', error));
-    }, []);
+        const fetchData = async (url, setter) => {
+          try {
+            const response = await axios.get(url);
+            console.log(response.data);
+            setter(response.data);
+          } catch (error) {
+            console.error('Erreur de chargement des images:', error);
+          }
+        };
+      
+        fetchData('http://localhost:4000/', setimages);
+        fetchData('http://localhost:4000/home', settableimages);
+      }, []);
+
+const tableau_image=tableimages.slice(0,4);
+const tableau_image1=tableimages.slice(4,8);
+const tableau_image2=tableimages.slice(8,9);
 
     const handleChatToggle = () => {
         setChatVisible(!chatVisible);
@@ -30,9 +40,11 @@ function Home(){
        <div className='all-home'>
         <Navbar findnav={'   search Home'}/>
         <Home1 props={imagehome[0]}/>
-        <Producthome donnee={Tableau1}  props={imagehome[1]}/>
+        <Producthome donnee={tableau_image}  props={imagehome[1]}/>
         
-        <Product donnee={Tableau2}/><Cards donnee={Tableau3}/><Cards donnee={Tableau3}/>
+        <Product donnee={tableau_image1}/>
+        <Cards donnee={tableau_image2}/>
+        <Cards donnee={tableau_image2}/>
         <div>
                     {chatVisible ? (
                         <div>

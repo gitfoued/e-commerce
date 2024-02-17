@@ -1,24 +1,32 @@
 import { useRef } from 'react';
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import{Link} from 'react-router-dom';
 import './Navbar.css';
-import {Dropdown,Dropdown2,Dropdown3} from './Dropdown' ;
-import { MenuItems3 } from './MenuItems';
+import {Dropdown,Dropdown2,Dropdown3, Dropdown4} from './Dropdown' ;
+import { MenuItems3, MenuItems4 } from './MenuItems';
 
 export function Navbar({findnav , onsearchterm}){
     const [click,setClick]=useState(false);
+    const [local,setlocal]=useState(false);
     const handleClick = () => setClick(!click);
     const closeMobilemenu = () => setClick(false);
     const [dropDown, setdropDown]=useState(false);
     const [dropDown2, setdropDown2]=useState(false);
     const [dropDown3, setdropDown3]=useState(false);
+    const [dropDown4, setdropDown4]=useState(false);
     const inputRef=useRef(null);
     const rendrefocus=()=>{
         if(inputRef.current){
             inputRef.current.focus();
         }
     }
-
+    
+        const handleLogout = () => {
+            console.log('Déconnexion en cours...');
+            localStorage.removeItem('monToken');
+            console.log('Token supprimé du localStorage.');
+          
+        }
     const onMouseEnter3=()=>{
             setdropDown3(true);
             
@@ -39,17 +47,33 @@ export function Navbar({findnav , onsearchterm}){
         
         
     }
+    const onMouseEnter4=()=>{
+        if(window.innerWidth<960) {
+            setdropDown4(false);
+        }else 
+            setdropDown4(true);
+        
+        
+    }
     const onMouseLeave=()=>{
         if(window.innerWidth<960) {
             setdropDown(false);
             setdropDown2(false);
             setdropDown3(false);
+            setdropDown4(false)
+            
         }else {
             setdropDown(false);
             setdropDown2(false);
             setdropDown3(false);
+            setdropDown4(false)
         }
     }
+    useEffect(() => {
+        const token = localStorage.getItem('monToken');
+        console.log('Token dans useEffect:', token);
+        setlocal(token !== null && token !== undefined);
+      }, [handleLogout]); 
     return(
     <>
    {/* start header */}
@@ -85,9 +109,18 @@ export function Navbar({findnav , onsearchterm}){
         </div>
        
     {/* fa-user contient sign up et log in  ne pas responsive*/}
+   {local ? (
+  <div onMouseEnter={onMouseEnter4} onMouseLeave={onMouseLeave}>
+  <i className="fas fa-user">{dropDown4 && <Dropdown4 props={MenuItems4} handlelogout={handleLogout} />}</i>
+</div>
+) : (
     <div onMouseEnter={onMouseEnter3} onMouseLeave={onMouseLeave}>
-        <i className="fas fa-user">{dropDown3 && <Dropdown3 props={MenuItems3}/>}</i>
-    </div>
+    <i className="fas fa-user">{dropDown3 && <Dropdown3 props={MenuItems3} />}</i>
+  </div>
+)}
+
+
+    
         
 </nav>
   

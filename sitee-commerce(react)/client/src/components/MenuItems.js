@@ -61,3 +61,18 @@ export const MenuItems3 =[
     },
 
 ]
+export const MenuItems4 =[
+    
+    {
+        title:'Bienvenue chez-nous Monsieur / Madame',
+        className:'text'
+    },
+    {
+        title:'deconnecter',
+        path:'/',
+        className:'log'//simple classname
+
+    },
+    
+
+]

@@ -1,14 +1,32 @@
 
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import {useNavigate} from "react-router-dom"
+import axios from "axios"
 import './Login.css'
 
 export default function Login() {
-    const [password,setpassword]=useState('')
+    const[values,setvalues]=useState({
+        email:"",
+        password:"",
+      });
+      const navigate=useNavigate();
     const [accept,setaccept]=useState(false);
     const submit=(e)=>{
         e.preventDefault();
         setaccept(true);
+        axios.post('http://localhost:4000/Login',values).then((res)=>{
+            console.log(res.data)
+            console.log("Success")
+            const token = res.data.token;
+            localStorage.setItem('monToken', token);
+      
+            navigate('/')
+           
+          })
+          .catch((err)=>{
+       console.log(err);
+          })
     }
     return (
         <div>
@@ -26,9 +44,9 @@ export default function Login() {
                     <div className='fatherform-log'>
                     <form onSubmit={submit} action="rechercher" method='post' >
                         
-                        <input type='Email'   placeholder='Email' required ></input>
-                        <input type='password'   placeholder='Password' required value={password} onChange={(e)=>setpassword(e.target.value)}></input>
-                        {password.length < 8 && accept && <p className='error'>password should be 8 caracter</p>}
+                    <input type='Email'   placeholder='Email' required value={values.email} onChange={(e)=>setvalues({...values,email:e.target.value})}></input>
+                        <input type='password'   placeholder='Password' required value={values.password} onChange={(e)=>setvalues({...values,password:e.target.value})}></input>
+                        {values.password.length < 8 && accept && <p className='error'>password should be 8 caracter</p>}
                         <button type='submit'>Log in</button>
                         
                     </form>

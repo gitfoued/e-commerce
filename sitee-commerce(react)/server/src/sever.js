@@ -67,6 +67,7 @@ app.get('/produits/:id', (req, res) => {
       res.json(produit);
     });
   });
+  
 
   app.get('/Men', (req, res) => {
    
@@ -89,10 +90,12 @@ app.get('/produits/:id', (req, res) => {
       }
   
       // Récupération du premier résultat (supposant que l'ID est unique)
-      const produit = results[0];
+      
+      const dataArray = Array.isArray(results) ? results : [results];
   
       // Envoi des données du produit au client
-      res.json(produit);
+      res.json(dataArray);
+      
     });
   });
   app.get('/Women', (req, res) => {
@@ -117,9 +120,65 @@ app.get('/produits/:id', (req, res) => {
   
       // Récupération du premier résultat (supposant que l'ID est unique)
       const produit = results[0];
+      const dataArray = Array.isArray(results) ? results : [results];
   
       // Envoi des données du produit au client
-      res.json(produit);
+      res.json(dataArray);
+    });
+  });
+  app.get('/home', (req, res) => {
+
+  
+    // Requête SQL pour récupérer les détails du produit
+    const sql = `SELECT * FROM produit `;
+  
+    // Exécution de la requête avec le produitId comme paramètre
+    db.query(sql, (error, results, fields) => {
+      if (error) {
+        console.error('Erreur lors de la récupération des données:', error);
+        res.status(500).json({ error: 'Erreur lors de la récupération des données' });
+        return;
+      }
+  
+      // Vérifier si le produit a été trouvé
+      if (results.length === 0) {
+        res.status(404).json({ message: 'Produit non trouvé' });
+        return;
+      }
+  
+      // Récupération du premier résultat (supposant que l'ID est unique)
+      const dataArray = Array.isArray(results) ? results : [results];
+  
+      // Envoi des données du produit au client
+      res.json(dataArray);
+    });
+  });
+  app.get('/piece', (req, res) => {
+
+  
+    // Requête SQL pour récupérer les détails du produit
+    const sql = `SELECT * FROM produit WHERE idProduit=''`;
+  
+    // Exécution de la requête avec le produitId comme paramètre
+    db.query(sql, (error, results, fields) => {
+      if (error) {
+        console.error('Erreur lors de la récupération des données:', error);
+        res.status(500).json({ error: 'Erreur lors de la récupération des données' });
+        return;
+      }
+  
+      // Vérifier si le produit a été trouvé
+      if (results.length === 0) {
+        res.status(404).json({ message: 'Produit non trouvé' });
+        return;
+      }
+  
+      // Récupération du premier résultat (supposant que l'ID est unique)
+      const produit = results[0];
+      const dataArray = Array.isArray(results) ? results : [results];
+  
+      // Envoi des données du produit au client
+      res.json(dataArray);
     });
   });
   app.get('/Blog', (req, res) => {

@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import{Link} from 'react-router-dom';
 import './Home1.css';
-import {MenuItems,MenuItems2,MenuItems3} from './MenuItems';
+import {MenuItems,MenuItems2,MenuItems3,MenuItems4} from './MenuItems';
 import'./Dropdown.css';
 
 export function Dropdown(){
@@ -51,7 +51,6 @@ export function Dropdown2(){
 export function Dropdown3({props}){
         const [click,setClick]=useState(false);
         const handleClick=()=>setClick(!click);
-    
       return(
         <>
         <ul onClick={handleClick}
@@ -69,7 +68,30 @@ export function Dropdown3({props}){
         </>
     )
 }
-
+export function Dropdown4({props,handlelogout}){
+    const [click,setClick]=useState(false);
+    const handleClick=()=>{
+        setClick(!click);
+      handlelogout();
+      
+    }
+  return(
+    <>
+    <ul onClick={handleClick}
+    className={click ? 'dropdown-menu-clicked':'dropdown-menu-user'}>
+        {props.map((item,index)=>{
+            return(
+                <li key={index} >
+                    <Link className={item.className} to={item.path} >{item.title}</Link>
+                </li>
+            )
+        })}
+    </ul>
+    
+    
+    </>
+)
+}
 
 
 

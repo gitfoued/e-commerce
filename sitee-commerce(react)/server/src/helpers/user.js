@@ -29,34 +29,31 @@ hash]
         req.status(404).json({message:'erreur'})
     }
 }
-export const login=async(req,res)=>{
-    const sql = 'SELECT * FROM User WHERE  email= ?';
-    db.query(sql, [req.body.email], (err, result) => {
-      
-        if (err) {
-          console.error('Erreur lors de la recherche de l\'utilisateur:', err);
-          res.status(500).send('Erreur serveur');
+import util from 'util';
 
+const queryAsync = util.promisify(db.query).bind(db);
 
-        } else {
-          if (result.length > 0) {
-          
-            const user=result[0];
-            const isvalid=comparepassword(req.body.password, user?.password)
-            if(!isvalid){
-            res.status(401)
-            res.send('nope')
-            return
-            }
-            res.status(200)
-            const token=createtoken(user)
-res.cookie('token',token)
-res.json("Success")
-          } else {
-            res.status(404).json({ message: 'Utilisateur non trouvé' });
-          }
-        }
-      });
-  
+export const login = async (req, res) => {
+  try {
+    const sql = 'SELECT * FROM User WHERE email = ?';
+    const results = await queryAsync(sql, [req.body.email]);
 
-}
+    if (results.length > 0) {
+      const user = results[0];
+      const isvalid = comparepassword(req.body.password, user?.password);
+
+      if (!isvalid) {
+        res.status(401).json({ message: 'Mot de passe incorrect' });
+        return;
+      }
+
+      const token = createtoken(user);
+      res.status(200).json({ token });
+    } else {
+      res.status(404).json({ message: 'Utilisateur non trouvé' });
+    }
+  } catch (err) {
+    console.error('Erreur lors de la recherche de l\'utilisateur:', err);
+    res.status(500).json({ message: 'Erreur serveur' });
+  }
+};
